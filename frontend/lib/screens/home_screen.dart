@@ -1,14 +1,17 @@
-import 'dart:ui';
-
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/painting.dart';
-import 'package:flutter/rendering.dart';
-import 'package:flutter/widgets.dart';
+import 'package:frontend/screens/login_screen.dart';
+import 'package:frontend/screens/test_screen.dart';
+import 'package:frontend/screens/voca_screen.dart';
+import 'package:frontend/screens/profile_screen.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -20,14 +23,21 @@ class HomeScreen extends StatelessWidget {
             style: TextStyle(
                 fontSize: 24, fontWeight: FontWeight.w800, color: Colors.white),
           ),
-          leading: const IconButton(
-            padding: EdgeInsets.only(left: 10),
-            icon: Icon(
+          leading: IconButton(
+            padding: const EdgeInsets.only(left: 10),
+            icon: const Icon(
               Icons.logout_outlined,
               color: Colors.white,
               size: 30,
             ),
-            onPressed: null,
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const LoginScreen(),
+                ),
+              );
+            },
           ),
           actions: const [
             IconButton(
@@ -86,7 +96,13 @@ class HomeScreen extends StatelessWidget {
                           borderRadius: BorderRadius.zero,
                         ),
                       ),
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (content) => const ProfileScreen()),
+                        );
+                      },
                       child: const Text(
                         "My Profile",
                         style: TextStyle(
@@ -97,12 +113,19 @@ class HomeScreen extends StatelessWidget {
                     const SizedBox(width: 10),
                     ElevatedButton(
                       style: ElevatedButton.styleFrom(
-                          backgroundColor: const Color(0xffFFD7C4),
-                          padding: const EdgeInsets.all(50),
-                          shape: const RoundedRectangleBorder(
-                            borderRadius: BorderRadius.zero,
-                          )),
-                      onPressed: () {},
+                        backgroundColor: const Color(0xffFFD7C4),
+                        padding: const EdgeInsets.all(50),
+                        shape: const RoundedRectangleBorder(
+                          borderRadius: BorderRadius.zero,
+                        ),
+                      ),
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (content) => const VocaScreen()),
+                        );
+                      },
                       child: const Text(
                         "VOCA",
                         style: TextStyle(
@@ -125,7 +148,13 @@ class HomeScreen extends StatelessWidget {
                           borderRadius: BorderRadius.zero,
                         ),
                       ),
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const TestScreen()),
+                        );
+                      },
                       child: const Text(
                         "Test",
                         style: TextStyle(
