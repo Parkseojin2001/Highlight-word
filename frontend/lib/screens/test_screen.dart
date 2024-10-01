@@ -17,7 +17,7 @@ class _TestScreenState extends State<TestScreen> {
         appBar: AppBar(
           backgroundColor: const Color(0xff87A2FF),
           title: const Text(
-            "Vocabulary",
+            "Test",
             style: TextStyle(
                 fontSize: 24, fontWeight: FontWeight.w800, color: Colors.white),
           ),
