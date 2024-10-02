@@ -8,11 +8,6 @@ import  matplotlib.pyplot  as plt
 # YOLOv8 모델 로드
 model = YOLO('yolov8s.pt')  # 사전 훈련된 YOLOv8s 모델 로드
 
-# 사용자 지정
-img_path = "~~~~"
-color = "yellow" 
-language = "eng"
-
 def detection_word(color, language, img_path):
     
     # 이미지 로드 & 전처리(BGR에서 RGB로 변환
@@ -69,5 +64,7 @@ def detection_word(color, language, img_path):
             print(f'Detected text {i + 1}: {text}')
     else:
         print("No text detected.")
+    
+    detected_texts = list(reversed(detected_texts))
     
     return detected_texts
