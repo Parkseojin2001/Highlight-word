@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:frontend/screens/camera_screen.dart';
 import 'package:frontend/screens/login_screen.dart';
 import 'package:frontend/screens/test_screen.dart';
 import 'package:frontend/screens/voca_screen.dart';
@@ -39,11 +40,18 @@ class _HomeScreenState extends State<HomeScreen> {
               );
             },
           ),
-          actions: const [
+          actions: [
             IconButton(
-              padding: EdgeInsets.only(right: 10),
-              onPressed: null,
-              icon: Icon(
+              padding: const EdgeInsets.only(right: 10),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const CameraScreen(),
+                  ),
+                );
+              },
+              icon: const Icon(
                 Icons.camera_alt,
                 color: Colors.white,
                 size: 30,
@@ -63,7 +71,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 Column(
                   children: [
                     Text(
-                      "Hello NickName",
+                      "Hello Name",
                       style: TextStyle(
                         fontSize: 40,
                         fontWeight: FontWeight.bold,
