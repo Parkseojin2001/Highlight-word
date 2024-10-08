@@ -4,6 +4,7 @@ import numpy as np
 import pytesseract
 from ultralytics import YOLO
 import  matplotlib.pyplot  as plt
+import re
 
 # YOLOv8 모델 로드
 model = YOLO('yolov8s.pt')  # 사전 훈련된 YOLOv8s 모델 로드
@@ -46,6 +47,7 @@ def detection_word(color, language, img_path):
             # OCR 수행
             text = pytesseract.image_to_string(roi, lang=language)  # 언어 설정
             if text.strip():  # 텍스트가 비어있지 않은 경우만 추가
+                text = re.sub(r'[.,]', '', text)
                 detected_texts.append(text.strip())  # 텍스트를 리스트에 추가
 
             # 바운딩 박스 그리기
