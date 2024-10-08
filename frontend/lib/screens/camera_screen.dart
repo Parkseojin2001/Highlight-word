@@ -84,66 +84,71 @@ class _CameraScreenState extends State<CameraScreen> {
           ),
         ),
         backgroundColor: Colors.white,
-        body: Padding(
-          padding: const EdgeInsets.all(10.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              const Text(
-                "Select language",
-                style: TextStyle(fontSize: 17),
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  DropdownWidget(valueList: _langList, value: 'English'),
-                  const SizedBox(
-                    width: 30,
-                  ),
-                  const Icon(
-                    Icons.arrow_right_alt_rounded,
-                    size: 50,
-                    color: Color(0xff705C53),
-                  ),
-                  const SizedBox(
-                    width: 30,
-                  ),
-                  DropdownWidget(valueList: _langList, value: 'Korean'),
-                ],
-              ),
-              const SizedBox(height: 20),
-              const Text(
-                "Select highlight color",
-                style: TextStyle(fontSize: 17),
-              ),
-              const SizedBox(height: 10),
-              DropdownWidget(valueList: _colorList, value: 'Yellow'),
-              const SizedBox(height: 40),
-              IconButton(
-                onPressed: _pickImageFromCamera,
-                icon: const Icon(
-                  Icons.camera_rounded,
-                  size: 150,
-                  color: Color(0xffD8D2C2),
+        body: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.all(20.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                const Text(
+                  "Select language",
+                  style: TextStyle(fontSize: 17),
                 ),
-              ),
-              const SizedBox(
-                height: 20,
-              ),
-              IconButton(
-                onPressed: _pickFile,
-                icon: const Icon(
-                  Icons.upload_file,
-                  size: 150,
-                  color: Color(0xffD8D2C2),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    DropdownWidget(valueList: _langList, value: 'English'),
+                    const SizedBox(
+                      width: 30,
+                    ),
+                    const Icon(
+                      Icons.arrow_right_alt_rounded,
+                      size: 50,
+                      color: Color(0xff705C53),
+                    ),
+                    const SizedBox(
+                      width: 30,
+                    ),
+                    DropdownWidget(valueList: _langList, value: 'Korean'),
+                  ],
                 ),
-              ),
-              if (_image != null)
-                Image.file(
-                  _image!,
-                  height: 200,
+                const SizedBox(height: 20),
+                const Text(
+                  "Select highlight color",
+                  style: TextStyle(fontSize: 17),
                 ),
-            ],
+                const SizedBox(height: 10),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 35),
+                  child: DropdownWidget(valueList: _colorList, value: 'Yellow'),
+                ),
+                const SizedBox(height: 40),
+                IconButton(
+                  onPressed: _pickImageFromCamera,
+                  icon: const Icon(
+                    Icons.camera_rounded,
+                    size: 150,
+                    color: Color(0xffD8D2C2),
+                  ),
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+                IconButton(
+                  onPressed: _pickFile,
+                  icon: const Icon(
+                    Icons.upload_file,
+                    size: 150,
+                    color: Color(0xffD8D2C2),
+                  ),
+                ),
+                if (_image != null)
+                  Image.file(
+                    _image!,
+                    height: 200,
+                  ),
+              ],
+            ),
           ),
         ),
       ),

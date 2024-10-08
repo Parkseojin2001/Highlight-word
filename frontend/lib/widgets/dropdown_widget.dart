@@ -27,6 +27,7 @@ class _DropdownWidgetState extends State<DropdownWidget> {
   @override
   Widget build(BuildContext context) {
     return DropdownButton(
+      alignment: Alignment.center,
       padding: const EdgeInsets.symmetric(vertical: 10),
       dropdownColor: const Color(0xffFAF7F0),
       value: _selectedValue,
